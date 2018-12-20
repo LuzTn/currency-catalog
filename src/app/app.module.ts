@@ -7,6 +7,7 @@ import {CurrenciesService} from "./currencies.service";
 import {AppRoutingModule} from "./app-routing.module";
 import {NgxPaginationModule} from "ngx-pagination";
 import {CurrenciesDetailsComponent} from "./currencies-details/currencies-details.component";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {CurrenciesDetailsComponent} from "./currencies-details/currencies-detail
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    FormsModule
   ],
   providers: [CurrenciesService],
   bootstrap: [AppComponent]

@@ -10,6 +10,10 @@ import {CurrenciesService} from "../currencies.service";
 export class AvailableCurrenciesComponent implements OnInit {
 
   currenciesArray: CurrencyModel[];
+  optionsFilter: string[] = ['id', 'code', 'name', 'type'];
+  selectedFilter: string;
+  currencyFilter: string;
+
   constructor(private currenciesService: CurrenciesService) { }
 
   ngOnInit() {

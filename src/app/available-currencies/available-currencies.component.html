@@ -1,8 +1,20 @@
 <div class="paddingComp">
     <h1>Available currencies</h1>
+    <div class="row paddingComp">
+        <div class="col-4">
+            <label><i class="fa fa-search"></i> Search: </label>
+            <input type="text" [(ngModel)]="currencyFilter" name="filterString">
+        </div>
+        <div class="col-4">
+            <select [(ngModel)]="selectedFilter">
+                <option *ngFor="let optionFilter of optionsFilter">{{optionFilter}}</option>
+            </select>
+        </div>
+        {{selectedFilter}}
+    </div>
     <div class="row">
         <div class="col-6"
-             *ngFor="let currency of currenciesArray | slice:0:200 | paginate: { itemsPerPage: 10, currentPage: p }">
+             *ngFor="let currency of currenciesArray | slice:0:200 | paginate: { itemsPerPage: 10, currentPage: p }"><!-- | filterBy: currencyFilter">-->
             <div class="borderCurr">
                 <a [routerLink]="['/currency',currency.id]">
                     ID: {{currency.id}} Type: {{currency.attributes.currency_type}} Symbol:
