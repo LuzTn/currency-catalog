@@ -5,15 +5,19 @@ import { AppComponent } from './app.component';
 import { AvailableCurrenciesComponent } from './available-currencies/available-currencies.component';
 import {CurrenciesService} from "./currencies.service";
 import {AppRoutingModule} from "./app-routing.module";
+import {NgxPaginationModule} from "ngx-pagination";
+import {CurrenciesDetailsComponent} from "./currencies-details/currencies-details.component";
 
 @NgModule({
   declarations: [
     AppComponent,
-    AvailableCurrenciesComponent
+    AvailableCurrenciesComponent,
+    CurrenciesDetailsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxPaginationModule
   ],
   providers: [CurrenciesService],
   bootstrap: [AppComponent]

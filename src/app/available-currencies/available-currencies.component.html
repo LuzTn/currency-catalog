@@ -1,12 +1,18 @@
 <div class="paddingComp">
-  <h1>Available currencies</h1>
-  <div class="row">
-    <div class="col-6"
-         *ngFor="let currency of currenciesArray | slice:0:200">
-      <div class="borderCurr">
-          ID: {{currency.id}} Type: {{currency.attributes.currency_type}} Symbol:
-          {{currency.attributes.symbol}}
-      </div>
+    <h1>Available currencies</h1>
+    <div class="row">
+        <div class="col-6"
+             *ngFor="let currency of currenciesArray | slice:0:200 | paginate: { itemsPerPage: 10, currentPage: p }">
+            <div class="borderCurr">
+                <a [routerLink]="['/currency',currency.id]">
+                    ID: {{currency.id}} Type: {{currency.attributes.currency_type}} Symbol:
+                    {{currency.attributes.symbol}}
+                </a>
+            </div>
+        </div>
+        <br>
+        <br>
+        <pagination-controls (pageChange)="p = $event"
+                             responsive="true"></pagination-controls>
     </div>
-</div>
 </div>
