@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CurrencyModel} from "../currencyModel";
 import {CurrenciesService} from "../currencies.service";
+import {FilterPipe} from "ngx-filter-pipe";
 
 @Component({
   selector: 'app-available-currencies',
@@ -12,9 +13,11 @@ export class AvailableCurrenciesComponent implements OnInit {
   currenciesArray: CurrencyModel[];
   optionsFilter: string[] = ['id', 'code', 'name', 'type'];
   selectedFilter: string;
-  currencyFilter: string;
+  currencyFilter : CurrencyModel = {id:'', attributes:[]};
 
-  constructor(private currenciesService: CurrenciesService) { }
+  constructor(private currenciesService: CurrenciesService, private filterPipe: FilterPipe) {
+      //console.log(filterPipe.transform(this.currencyFilter, {name:'M', id:'M', code: 'M', type: 'M'}));
+  }
 
   ngOnInit() {
       this.currenciesArray = this.currenciesService.dataCurrencies;

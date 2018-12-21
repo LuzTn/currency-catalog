@@ -8,6 +8,7 @@ import {AppRoutingModule} from "./app-routing.module";
 import {NgxPaginationModule} from "ngx-pagination";
 import {CurrenciesDetailsComponent} from "./currencies-details/currencies-details.component";
 import {FormsModule} from "@angular/forms";
+import {FilterPipeModule} from "ngx-filter-pipe";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {FormsModule} from "@angular/forms";
     BrowserModule,
     AppRoutingModule,
     NgxPaginationModule,
-    FormsModule
+    FormsModule,
+    FilterPipeModule
   ],
   providers: [CurrenciesService],
   bootstrap: [AppComponent]
