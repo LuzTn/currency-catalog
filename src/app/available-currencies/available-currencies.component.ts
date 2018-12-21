@@ -12,11 +12,10 @@ export class AvailableCurrenciesComponent implements OnInit {
 
   currenciesArray: CurrencyModel[];
   optionsFilter: string[] = ['id', 'code', 'name', 'type'];
-  selectedFilter: string;
+  selectedFilter: string = '';
   currencyFilter : CurrencyModel = {id:'', attributes:[]};
 
   constructor(private currenciesService: CurrenciesService, private filterPipe: FilterPipe) {
-      //console.log(filterPipe.transform(this.currencyFilter, {name:'M', id:'M', code: 'M', type: 'M'}));
   }
 
   ngOnInit() {

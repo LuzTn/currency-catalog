@@ -2,13 +2,14 @@
     <h1>Available currencies</h1>
     <div class="row paddingComp">
         <div class="col-4">
-            <label><i class="fa fa-search"></i> Search: </label>
+            <label *ngIf = "selectedFilter !== ''"><i class="fa fa-search"></i> Search: </label>
             <input *ngIf="selectedFilter == 'id'" type="text" [(ngModel)]="currencyFilter.id" name="filterId">
             <input *ngIf="selectedFilter == 'name'" type="text" [(ngModel)]="currencyFilter.attributes.name" name="filterName">
             <input *ngIf="selectedFilter == 'code'" type="text" [(ngModel)]="currencyFilter.attributes.code" name="filterCode">
             <input *ngIf="selectedFilter == 'type'" type="text" [(ngModel)]="currencyFilter.attributes.currency_type" name="filterType">
         </div>
         <div class="col-4">
+            <label> Select a filter: </label>
             <select [(ngModel)]="selectedFilter">
                 <option *ngFor="let optionFilter of optionsFilter">{{optionFilter}}</option>
             </select>
@@ -23,9 +24,9 @@
                     {{currency.attributes.symbol}}
                 </a>
             </div>
-            <li *ngIf="(currenciesArray | filterBy: currencyFilter).length === 0">
+            <div *ngIf="(currenciesArray | filterBy: currencyFilter).length === 0">
                 No matching elements
-            </li>
+            </div>
         </div>
         <br>
         <br>

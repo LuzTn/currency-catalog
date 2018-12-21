@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
+import {CurrencyModel} from "./currencyModel";
 
 @Injectable()
 export class CurrenciesService {
 
-    dataCurrencies = [
+    dataCurrencies: CurrencyModel[] = [
         {
             "id": "USD",
             "attributes": {
